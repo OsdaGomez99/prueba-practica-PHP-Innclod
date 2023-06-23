@@ -1,10 +1,11 @@
-# Gestión de Documentos
-Para optar por la vacante de Desarrollador Web para Innclod
+# Gestor de Documentos
+Gestor de documentos realizado en Laravel, para optar por la vacante de Desarrollador Web para Innclod
 
 ## Requisitos Previos
 Asegúrate de tener instalados los siguientes componentes antes de comenzar:
 
 - PHP >= versión 8.1
+- Composer >= 2.5.7
 - Laravel >= versión 10.10
 - Node >= 18.16.0
 
@@ -13,51 +14,71 @@ Sigue estos pasos para configurar el proyecto en tu entorno local:
 
 Clona este repositorio en tu máquina local:
 
-shell
-Copy code
-git clone https://github.com/tu-usuario/tu-proyecto.git
+```bash
+git clone https://github.com/OsdaGomez99/prueba-practica-PHP-Innclod.git
+```
+
 Navega hasta la carpeta del proyecto:
 
-shell
-Copy code
-cd tu-proyecto
+```bash
+cd prueba-practica-PHP-Innclod
+```
+
 Instala las dependencias de Laravel:
 
-shell
-Copy code
+```bash
 composer install
+npm install
+```
+
 Crea un archivo .env basado en el archivo .env.example y configura las variables de entorno necesarias, como la conexión a la base de datos.
 
 Genera una clave de aplicación única:
 
-shell
-Copy code
+```bash
 php artisan key:generate
-Migra las tablas de la base de datos:
+```
 
-shell
-Copy code
+Migra las tablas de la base de datos y inserta los datos de los seeders:
+
+```bash
 php artisan migrate:fresh --seed
+```
+
+Inicia el servidor de desarrollo de Vite:
+
+```bash
+npm run dev
+```
+
 Inicia el servidor de desarrollo de Laravel:
 
-shell
-Copy code
+```bash
 php artisan serve
+```
 
-Uso
-Describe aquí cómo utilizar el proyecto, cómo ejecutarlo, cómo interactuar con él, etc.
+## Email y contraseña del sistema
+- Email: admin@mail.com
+- Contraseña: 12345678
 
-Contribución
-Las contribuciones son bienvenidas. Si deseas contribuir al proyecto, sigue estos pasos:
+## Uso
+Este gestor de documentos, permite:
+- Iniciar sesión en el sistema mediante un email y una contraseña
+- Cerrar sesión
+- Visualizar los documentos registrados
+- Registrar documentos nuevos, agregandole en nombre, contenido, tipo de documento y tipo de proceso
+- Editar documentos
+- Eliminar documentos
 
-Crea un fork del repositorio.
-Crea una nueva rama para tu contribución.
-Realiza tus cambios y mejoras en la nueva rama.
-Envía una solicitud de extracción (pull request) explicando tus cambios y los beneficios que aportan.
+## Diagrama Entidad-Relación
+
+(https://github.com/OsdaGomez99/prueba-practica-PHP-Innclod/tree/main/app/Diagramas/DiagramaER.png)
 
 ## Créditos
 Realizado por: Osdalys Gómez
+
 Medellin, Colombia
+
 Junio 2023
 
 ## Contacto
