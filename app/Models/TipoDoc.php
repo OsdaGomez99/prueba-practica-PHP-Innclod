@@ -15,4 +15,9 @@ class TipoDoc extends Model
         'TIP_PREFIJO',
     ];
     use HasFactory;
+
+    public function documentos()
+    {
+        return $this->hasMany(Documento::class, 'DOC_ID_TIPO');
+    }
 }

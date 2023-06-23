@@ -10,9 +10,14 @@ class ProProceso extends Model
     protected $table = 'PRO_PROCESO';
     protected $primaryKey = 'PRO_ID';
     protected $fillable = [
-        'TIP_ID',
-        'TIP_NOMBRE',
-        'TIP_PREFIJO',
+        'PRO_ID',
+        'PRO_NOMBRE',
+        'PRO_PREFIJO',
     ];
     use HasFactory;
+
+    public function documentos()
+    {
+        return $this->hasMany(Documento::class, 'DOC_ID_PROCESO');
+    }
 }
