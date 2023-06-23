@@ -5,9 +5,22 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header flex">
-                        <h3>Documentos</h3>
-                        <a href="{{ route('home.create') }}" class="btn btn-outline-secondary">Crear Documento</a>
+                    <div class="card-header">
+                        <div class="row row-cols-2">
+                            <div class="col">
+                                <a href="{{ route('home.create') }}" class="btn btn-outline-secondary">Crear Documento</a>
+                            </div>
+                            <div class="col">
+                                <form action="{{ route('home.index') }}" method="GET" class="mb-3">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="search" placeholder="Buscar...">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

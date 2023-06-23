@@ -69,9 +69,23 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        $docs = Documento::paginate(5);
+        $search = $request->query('search');
+
+        $docs = Documento::where(function ($query) use ($search) {
+            if ($search) {
+                $query->where('DOC_NOMBRE', 'like', '%' . $search . '%')
+                    ->orWhere('DOC_CODIGO', 'like', '%' . $search . '%')
+                    ->orWhereHas('proceso', function ($query) use ($search) {
+                        $query->where('PRO_NOMBRE', 'like', '%' . $search . '%');
+                    })
+                    ->orWhereHas('tipo', function ($query) use ($search) {
+                        $query->where('TIP_NOMBRE', 'like', '%' . $search . '%');
+                    });
+            }
+        })->paginate(5);
+        
         return view('home', compact('docs'));
     }
 
@@ -117,7 +131,7 @@ class HomeController extends Controller
     public function update(Request $request, $DOC_ID)
     {
         $doc = Documento::find($DOC_ID);
-        
+
         $this->validate($request, [
             'DOC_NOMBRE' => 'required',
             'DOC_CONTENIDO' => 'required',
